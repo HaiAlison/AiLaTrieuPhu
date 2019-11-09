@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoginForm</string>
+    <!--Tạo chuỗi cho ID ứng dụng Facebook và các chuỗi cần để bật Tab tùy chỉnh của Chrome-->
+    <string name="facebook_app_id">446183842686116</string>
+    <string name="fb_login_protocol_scheme">fb446183842686116</string>
+    <string name="Activity_Resign">Resign</string>
+
+</resources>

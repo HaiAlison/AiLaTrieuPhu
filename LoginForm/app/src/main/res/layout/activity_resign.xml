@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResignActivity">
+
+    <TextView
+        android:id="@+id/textResign"
+        android:layout_width="327dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Đăng kí tài khoản"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="19dp" />
+
+    <TextView
+        android:id="@+id/textIcon"
+        android:layout_width="280dp"
+        android:layout_height="175dp"
+        android:background="@drawable/ic_action_name"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResign"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="291dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textIcon"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextTaiKhoan"
+        android:layout_width="291dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Tên Đăng Nhập"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextMatKhau"
+        android:layout_width="291dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Mật khẩu"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTaiKhoan"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextReMatKhau"
+        android:layout_width="291dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="208dp"
+        android:layout_height="161dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextReMatKhau">
+
+        <Button
+            android:id="@+id/buttonDangKy"
+            android:layout_width="186dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#3F51B5"
+            android:gravity="center"
+            android:text="Đăng kí"
+            android:textColor="#F7F4F4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextReMatKhau" />
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:onClick="launchBackMainActivity"
+            android:text="Trở về"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
