@@ -20,21 +20,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_begin="69dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="76dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="180dp" />
+        app:layout_constraintGuide_begin="276dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline30"
@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25547445" />
+        app:layout_constraintGuide_percent="0.39" />
 
     <TextView
         android:id="@+id/textViewDangNhap"
@@ -59,9 +59,9 @@
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline30"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toTopOf="@+id/guideline40" />
+        app:layout_constraintTop_toTopOf="@+id/guideline41" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -71,7 +71,7 @@
         android:hint="nhập mật khẩu"
         android:inputType="textPassword"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/editTextAccount"
         tools:ignore="MissingConstraints" />
 
@@ -87,7 +87,7 @@
         android:text="Đăng nhập"
         android:textColor="#F7F4F4"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
@@ -102,7 +102,7 @@
         android:text="Đăng ký"
         android:textColor="#F7F4F4"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <Button
@@ -117,19 +117,19 @@
         android:text="Quên Mật khẩu"
         android:textColor="#F7F4F4"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/buttonResign" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
-        android:layout_width="201dp"
-        android:layout_height="29dp"
+        android:layout_width="289dp"
+        android:layout_height="43dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline30"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/buttonForgotPassword"
         app:layout_constraintVertical_bias="0.0" />
@@ -140,7 +140,7 @@
         android:layout_height="44dp"
         android:hint="nhập tài khoản"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toBottomOf="@+id/textViewDangNhap" />
 
     <ImageView
@@ -148,9 +148,8 @@
         android:layout_width="185dp"
         android:layout_height="104dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
-        app:layout_constraintEnd_toStartOf="@+id/guideline30"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintEnd_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
         app:layout_constraintTop_toTopOf="@+id/guideline41"
         app:srcCompat="@drawable/avatar" />
 
