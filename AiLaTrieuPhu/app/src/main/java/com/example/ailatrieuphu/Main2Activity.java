@@ -87,31 +87,6 @@ public class Main2Activity extends AppCompatActivity {
         //Đăng ký gọi lại để nhận thông tin public trên FB
         loginButton.setReadPermissions("public_profile");
         loginButton.registerCallback(callbackManager,callback);
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-//                    @Override
-//                    public void onCompleted(JSONObject object, GraphResponse response) {
-//                        Log.v("Main2Activity", response.toString());
-//                    }
-//                });
-//                Bundle parameters = new Bundle();
-//                parameters.putString("fields", "id, name, gender, birthday");
-//                graphRequest.setParameters(parameters);
-//                graphRequest.executeAsync();
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onError(FacebookException error) {
-//
-//            }
-//        });
     }
 
     @Override

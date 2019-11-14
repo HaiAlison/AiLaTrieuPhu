@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="69dp" />
+        app:layout_constraintGuide_begin="42dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline41"
@@ -41,14 +41,88 @@
         android:layout_width="21dp"
         android:layout_height="70dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.87" />
+
+    <LinearLayout
+        android:layout_width="384dp"
+        android:layout_height="270dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline40"
+        app:layout_constraintEnd_toStartOf="@+id/guideline30"
+        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintTop_toTopOf="@+id/guideline41">
+
+        <EditText
+            android:id="@+id/editTextAccount"
+            android:layout_width="290dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:hint="nhập tài khoản" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="290dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:hint="nhập mật khẩu"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#3F51B5"
+            android:onClick="dangNhapGiaoDien"
+            android:text="Đăng nhập"
+            android:textColor="#F7F4F4" />
+
+        <Button
+            android:id="@+id/buttonResign"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#9C27B0"
+            android:onClick="launchResignActivity"
+            android:text="Đăng ký"
+            android:textColor="#F7F4F4" />
+
+        <Button
+            android:id="@+id/buttonForgotPassword"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="#F44336"
+            android:onClick="launchForgotPActivity"
+            android:text="Quên Mật khẩu"
+            android:textColor="#F7F4F4" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="289dp"
+            android:layout_height="43dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+
+            />
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline29"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.39" />
+        app:layout_constraintGuide_percent="0.34" />
 
     <TextView
         android:id="@+id/textViewDangNhap"
@@ -59,89 +133,10 @@
         android:textAlignment="center"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toTopOf="@+id/guideline41" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="290dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:hint="nhập mật khẩu"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAccount"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="292dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:background="#3F51B5"
-        android:onClick="dangNhapGiaoDien"
-        android:text="Đăng nhập"
-        android:textColor="#F7F4F4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
-
-    <Button
-        android:id="@+id/buttonResign"
-        android:layout_width="292dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:background="#9C27B0"
-        android:onClick="launchResignActivity"
-        android:text="Đăng ký"
-        android:textColor="#F7F4F4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
-
-    <Button
-        android:id="@+id/buttonForgotPassword"
-        android:layout_width="292dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:background="#F44336"
-        android:onClick="launchForgotPActivity"
-        android:text="Quên Mật khẩu"
-        android:textColor="#F7F4F4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/buttonResign" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="289dp"
-        android:layout_height="43dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/buttonForgotPassword"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/editTextAccount"
-        android:layout_width="290dp"
-        android:layout_height="44dp"
-        android:hint="nhập tài khoản"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDangNhap" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline40"
+        app:layout_constraintEnd_toStartOf="@+id/guideline29"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -149,8 +144,10 @@
         android:layout_height="104dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
         app:layout_constraintEnd_toStartOf="@+id/guideline29"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
         app:layout_constraintTop_toTopOf="@+id/guideline41"
+        app:layout_constraintVertical_bias="0.205"
         app:srcCompat="@drawable/avatar" />
 
     <!--icon profile picture facebook-->

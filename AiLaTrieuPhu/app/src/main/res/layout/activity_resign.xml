@@ -6,113 +6,137 @@
     android:layout_height="match_parent"
     tools:context=".ResignActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
     <TextView
         android:id="@+id/textResign"
-        android:layout_width="327dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:gravity="center"
         android:text="Đăng kí tài khoản"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="19dp" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="291dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextTaiKhoan"
-        android:layout_width="291dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="Tên Đăng Nhập"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextMatKhau"
-        android:layout_width="291dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="Mật khẩu"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTaiKhoan"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
-        android:id="@+id/editTextReMatKhau"
-        android:layout_width="291dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="Nhập lại mật khẩu"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextMatKhau"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/guideline32"
+        app:layout_constraintStart_toStartOf="@+id/guideline31"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
-        android:layout_width="208dp"
-        android:layout_height="161dp"
-        android:layout_gravity="center"
+        android:id="@+id/linearLayout"
+        android:layout_width="292dp"
+        android:layout_height="423dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextReMatKhau">
+        app:layout_constraintBottom_toTopOf="@+id/guideline28"
+        app:layout_constraintEnd_toStartOf="@+id/guideline32"
+        app:layout_constraintStart_toStartOf="@+id/guideline31"
+        app:layout_constraintTop_toTopOf="@+id/guideline27">
 
-        <Button
-            android:id="@+id/buttonDangKy"
-            android:layout_width="186dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#3F51B5"
-            android:gravity="center"
-            android:text="Đăng kí"
-            android:textColor="#F7F4F4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextReMatKhau" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/avatar" />
 
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="184dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:onClick="launchBackMainActivity"
-            android:text="Trở về"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editTextTaiKhoan"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:hint="Tên Đăng Nhập"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:hint="Mật khẩu"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextReMatKhau"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonDangKy"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="5dp"
+                android:background="#3F51B5"
+                android:text="Đăng kí"
+                android:textColor="#F7F4F4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextReMatKhau" />
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="5dp"
+                android:onClick="launchBackMainActivity"
+                android:text="Trở về"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="149dp"
-        android:layout_height="173dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResign"
-        app:srcCompat="@drawable/avatar" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
