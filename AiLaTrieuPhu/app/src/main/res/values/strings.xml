@@ -4,4 +4,7 @@
     <string name="facebook_app_id">446183842686116</string>
     <string name="fb_login_protocol_scheme">fb446183842686116</string>
     <string name="Activity_Resign">Resign</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

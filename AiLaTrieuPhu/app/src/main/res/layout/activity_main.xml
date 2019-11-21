@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_linhvuc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -150,11 +151,11 @@
         android:id="@+id/lblCauHoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Câu hỏi"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -174,7 +175,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lblCauHoi" />
 
     <TextView
-        android:id="@+id/lblChonLinhVuc"
+        android:id="@+id/text_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chọn lĩnh vực"
@@ -185,41 +186,42 @@
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
     <Button
-        android:id="@+id/buttonTheThao"
+        android:id="@+id/btn_DapAn_A"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#b3ffff"
         android:backgroundTintMode="multiply"
         android:text="Thể thao"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLichSu"
+        app:layout_constraintBottom_toTopOf="@+id/btn_DapAn_B"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toTopOf="@+id/guideline14" />
+        app:layout_constraintTop_toTopOf="@+id/guideline14"
+        android:onClick="TheThaoActivity"/>
 
     <Button
-        android:id="@+id/buttonLichSu"
+        android:id="@+id/btn_DapAn_B"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#99ffff"
         android:text="Lịch sử"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAmNhac"
+        app:layout_constraintBottom_toTopOf="@+id/btn_DapAn_C"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTheThao" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_DapAn_A" />
 
     <Button
-        android:id="@+id/buttonAmNhac"
+        android:id="@+id/btn_DapAn_C"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#66ffff"
         android:text="Âm nhạc – Phim"
-        app:layout_constraintBottom_toTopOf="@+id/buttonKhoaHoc"
+        app:layout_constraintBottom_toTopOf="@+id/btn_DapAn_D"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLichSu" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_DapAn_B" />
 
     <Button
-        android:id="@+id/buttonKhoaHoc"
+        android:id="@+id/btn_DapAn_D"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#33ffff"
@@ -227,7 +229,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonVanHoa"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAmNhac" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_DapAn_C" />
 
     <Button
         android:id="@+id/buttonVanHoa"
@@ -238,7 +240,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonYHoc"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonKhoaHoc" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_DapAn_D" />
 
     <Button
         android:id="@+id/buttonYHoc"
@@ -268,6 +270,15 @@
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <ImageView
+        android:id="@+id/imageViewLuotChoi2"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:background="#4A00E6E6"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewLuotChoi3"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ImageView
         android:id="@+id/imageViewLuotChoi"
         android:layout_width="29dp"
         android:layout_height="29dp"
@@ -275,15 +286,6 @@
         app:layout_constraintEnd_toStartOf="@+id/imageViewLuotChoi2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageView
-        android:id="@+id/imageViewLuotChoi2"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:background="#4A00E6E6"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewLuotChoi3"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
