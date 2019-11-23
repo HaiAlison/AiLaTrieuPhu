@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Question.VanHoa_SuKienActivity"></activity>
+        <activity android:name=".Question.KhoaHocTuNhienActivity" />
+        <activity android:name=".Question.AmNhac_PhimActivity" />
+        <activity android:name=".Question.YHocActivity" />
+        <activity android:name=".Question.LichSuActivity" />
         <activity android:name=".Question.TheoThaoActivity" />
         <activity android:name=".Main2Activity">
             <intent-filter>
