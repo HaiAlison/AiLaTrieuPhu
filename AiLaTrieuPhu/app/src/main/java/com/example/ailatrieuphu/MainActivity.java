@@ -20,16 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button KhoaHocKyThuat=(Button)findViewById(R.id.btn_DapAn_D);
-        KhoaHocKyThuat.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view) {
-//                KhoaHocKyThuatFragment khoaHocKyThuatFragment=new KhoaHocKyThuatFragment();
-//                FragmentManager manager=getSupportFragmentManager();
-//                manager.beginTransaction().replace(R.id.content_linhvuc,khoaHocKyThuatFragment,khoaHocKyThuatFragment.getTag()).commit();
-            }
-        });
     }
 
     public void TheThao_activity(View view) {
@@ -47,10 +38,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void khoahoctunhien_activity(View view) {
-        Intent intent=new Intent(this, KhoaHocTuNhienActivity.class);
-        startActivity(intent);
-    }
 
     public void VanHoa_Sukien_activity(View view) {
         Intent intent=new Intent(this, VanHoa_SuKienActivity.class);
@@ -59,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void YHoc_activity(View view) {
         Intent intent=new Intent(this, YHocActivity.class);
+        startActivity(intent);
+    }
+
+    public void khoahoctunhien_activity(View view) {
+        Intent intent=new Intent(this, KhoaHocTuNhienActivity.class);
         startActivity(intent);
     }
 }
