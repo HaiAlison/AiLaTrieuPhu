@@ -7,16 +7,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Objects;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
+    private static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD(Genymotion : 10.0.3.2)
+    public static String GET = "GET";
+    public static String POST = "POST";
 
-    //private static final String BASE_URL =  "http://10.0.3.2:8000/"; // Genymotion
-    private static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD
-
-    static String getJSONData(String uri, String method) {
+    public static String getJSONData(String uri, String method) {
         HttpURLConnection urlConnection = null;
         String jsonString = null;
         Uri builtURI = Uri.parse(BASE_URL + uri).buildUpon().build();
@@ -39,17 +43,18 @@ public class NetworkUtils {
                 urlConnection.disconnect();
             }
         }
-
-        Log.d(LOG_TAG, jsonString);
+        Log.d("TEST", jsonString);
         return jsonString;
     }
 
-    static String getJSONData(String uri, String method, Object[] nameParams, Object[] valueParams) {
+    public static String getJSONData(String uri, String method, Map<String, String> paramets) {
         HttpURLConnection urlConnection = null;
         String jsonString = null;
         Uri.Builder builder =  Uri.parse(BASE_URL + uri).buildUpon();
-        for(int i=0; i<nameParams.length; i++) {
-            builder.appendQueryParameter(nameParams[i].toString(), valueParams[i].toString());
+        if (paramets != null) {
+            for (String key: paramets.keySet() ) {
+                builder.appendQueryParameter(key, paramets.get(key));
+            }
         }
         Uri builtURI = builder.build();
 

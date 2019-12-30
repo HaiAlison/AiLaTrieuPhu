@@ -66,11 +66,27 @@ public class GiaoDienChinh extends AppCompatActivity {
         });
         //Tải lại giao diện để đổi thành ảnh đại diện trên FB
         new GiaoDienChinh.DownloadImage((ImageView)findViewById(R.id.iv_avatar)).execute(imageUrl);
+
+        Button rank=(Button)findViewById(R.id.btnRank);
+        rank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(GiaoDienChinh.this,ranked_member_table.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     public void ChuyenTrang(View view){
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
+    public void ranked(View view) {
+        Intent intent=new Intent(this,ranked_member_table.class);
+        startActivity(intent);
+    }
+
     //Tải dữ liệu ảnh đại diện từ FB về và gán vào lại id imageView
     public class DownloadImage extends AsyncTask<String,Void, Bitmap>{
         ImageView bmImage;
