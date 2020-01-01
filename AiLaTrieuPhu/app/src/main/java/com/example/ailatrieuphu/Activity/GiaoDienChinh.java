@@ -1,37 +1,20 @@
-package com.example.ailatrieuphu;
+package com.example.ailatrieuphu.Activity;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
+import com.example.ailatrieuphu.R;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
-import com.facebook.Profile;
 import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.facebook.login.widget.ProfilePictureView;
-import com.facebook.share.widget.ShareDialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +23,10 @@ import java.net.MalformedURLException;
 public class GiaoDienChinh extends AppCompatActivity {
 //    private ShareDialog shareDialog;
     //private Button logout;
+        // giao diện hiển thị sau khi đăng nhập
+    public static final String KEY_PAGE = "page";
+    public static final String KEY_LIMIT = "limit";
+    public static final int KEY_REQUESTCODE = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,7 @@
     android:id="@+id/content_linhvuc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
     <!-- Tạo giao diện cho cho viewPaper bằng cách include 2 thành phần giao diện có sẵn Header và body-->
     <include
         android:id="@+id/vHeader"

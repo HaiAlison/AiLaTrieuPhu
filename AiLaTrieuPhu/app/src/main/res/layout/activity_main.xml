@@ -5,7 +5,7 @@
     android:id="@+id/content_linhvuc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -185,72 +185,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
-    <Button
-        android:id="@+id/btnTheThao"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#b3ffff"
-        android:backgroundTintMode="multiply"
-        android:text="Thể thao"
-        app:layout_constraintBottom_toTopOf="@+id/btnLichSu"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toTopOf="@+id/guideline14"
-        android:onClick="TheThao_activity"/>
-
-    <Button
-        android:id="@+id/btnLichSu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#99ffff"
-        android:text="Lịch sử"
-        app:layout_constraintBottom_toTopOf="@+id/btnAmNhac_Phim"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/btnTheThao"
-        android:onClick="LichSu_activity"
-        />
-
-    <Button
-        android:id="@+id/btnAmNhac_Phim"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#66ffff"
-        android:text="Âm nhạc – Phim"
-        android:onClick="AmNhac_Phim_activity"
-        app:layout_constraintBottom_toTopOf="@+id/btnKHTN"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/btnLichSu" />
-
-
-
-    <Button
-        android:id="@+id/buttonVanHoa"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#00ffff"
-        android:text="Văn hoá - Sự kiện"
-        android:onClick="VanHoa_Sukien_activity"
-        app:layout_constraintBottom_toTopOf="@+id/buttonYHoc"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/btnKHTN" />
-
-    <Button
-        android:id="@+id/buttonYHoc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#00e6e6"
-        android:text="Y học"
-        android:onClick="YHoc_activity"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/buttonVanHoa"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textTenNguoiChoi"
@@ -314,7 +248,7 @@
         app:layout_constraintGuide_percent="0.97" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCredit"
         android:layout_width="56dp"
         android:layout_height="28dp"
         android:background="#FFEB3B"
@@ -326,16 +260,13 @@
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
-    <Button
-        android:id="@+id/btnKHTN"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvLinhVuc"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#33ffff"
-        android:text="Khoa học tự nhiên"
-        android:onClick="khoahoctunhien_activity"
-        app:layout_constraintBottom_toTopOf="@+id/buttonVanHoa"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toBottomOf="@+id/btnAmNhac_Phim" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline12"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

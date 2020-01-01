@@ -7,4 +7,30 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ten_dang_nhap">Tên đăng nhập</string>
+    <string name="mat_khau">Mật Khẩu</string>
+    <string name="dang_nhap">Đăng Nhập</string>
+    <string name="quen_mat_khau">Quên Mật Khẩu</string>
+    <string name="dang_ky">Đăng ký</string>
+    <string name="dang_nhap_voi_facebook">Đăng Nhập Với FaceBook</string>
+    <string name="dang_nhap_voi_google">Đăng Nhập Với Google</string>
+    <string name="tb_dang_nhap">Tên Tài Khoản hoặc Mật Khẩu Không đúng</string>
+    <string name="tb_dang_nhap_xoa">Tên Tài Khoản đã xóa</string>
+    <string name="tb_dang_ky_tb">Đăng Kí Thất Bại</string>
+    <string name="tb_dang_ky_tc">Đăng Kí Thành Công</string>
+    <string name="email">Email</string>
+    <string name="xac_nhan_mat_khau">Xác Nhận Mật Khẩu</string>
+    <string name="lay_lai_mat_khau">Lấy lại mật khẩu</string>
+    <string name="tb_quen_mat_khau_tb">User Không tồn tại</string>
+    <string name="tb_quen_mat_khau_tc">Password đã được reset</string>
+    <string name="tb_update_user_tc">Update user thành công</string>
+    <string name="tb_update_user_tb">Update user thất bại</string>
+    <string name="tb_mat_khau_khong_giong_nhau">Mật khẩu xác nhận không giống nhau</string>
+    <string name="tb_chua_nhap_du">Bạn Chưa nhập đủ thông tin</string>
+    <string name="tb_ton_tai">Tên tài khoản đã tồn tại</string>
+    <string name="tb_dung_tat_internet">Đừng tắt Internet chứ</string>
+    <string name="tb_xin_cho">Xin Chờ</string>
+    <string name="tb_doi">Đợi tí nhé ...</string>
+    <string name="tb_server_offline">Server Offline</string>
+    <string name="tb_connect_internet">Không Có kết nối Internet</string>
 </resources>

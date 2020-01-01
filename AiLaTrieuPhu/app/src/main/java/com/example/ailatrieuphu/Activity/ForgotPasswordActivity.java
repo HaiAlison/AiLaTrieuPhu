@@ -1,10 +1,12 @@
-package com.example.ailatrieuphu;
+package com.example.ailatrieuphu.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.ailatrieuphu.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 

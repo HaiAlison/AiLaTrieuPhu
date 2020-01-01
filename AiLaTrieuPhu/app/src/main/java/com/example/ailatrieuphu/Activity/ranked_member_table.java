@@ -1,4 +1,4 @@
-package com.example.ailatrieuphu;
+package com.example.ailatrieuphu.Activity;
 
 import android.os.Bundle;
 import android.widget.Adapter;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ailatrieuphu.Adapter.TableRankAdapter;
 import com.example.ailatrieuphu.Class.NguoiChoi;
 import com.example.ailatrieuphu.Loader.NguoiChoiLoader;
+import com.example.ailatrieuphu.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

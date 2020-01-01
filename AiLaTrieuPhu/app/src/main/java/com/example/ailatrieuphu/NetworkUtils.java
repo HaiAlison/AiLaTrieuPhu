@@ -1,24 +1,42 @@
 package com.example.ailatrieuphu;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    private static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD(Genymotion : 10.0.3.2)
+    public static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD(Genymotion : 10.0.3.2)
     public static String GET = "GET";
     public static String POST = "POST";
+    public static final String URI_CAU_HOI = "cau-hoi";
+    public static final String URI_LINH_VUC = "linh-vuc";
+    public static final String BASE_IMAGE = "http://10.0.2.2:8000/public/upload/images/";
+
+    //fuction check connect
+    public static boolean checkConnect(Context context){
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo= null;
+        if (manager != null){
+            networkInfo = manager.getActiveNetworkInfo();
+        }
+        return (networkInfo!= null && networkInfo.isConnected());
+    }
 
     public static String getJSONData(String uri, String method) {
         HttpURLConnection urlConnection = null;
@@ -107,5 +125,28 @@ public class NetworkUtils {
             return null;
         }
         return builder.toString();
+    }
+
+    public static AlertDialog showDialogNetWork(String message, final Activity activity){
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle("Thông Báo").setMessage(message).setPositiveButton("Thoát", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                activity.moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
+                dialog.dismiss();
+            }
+        });
+        return builder.create();
+    }
+    public static ProgressDialog showProress(Context context){
+        final ProgressDialog pgWait = new ProgressDialog(context);
+        pgWait.setTitle(context.getString(R.string.tb_xin_cho));
+        pgWait.setMessage(context.getString(R.string.tb_doi));
+        return pgWait;
+    }
+    public static Toast showToast(String tb, Context context){
+        return Toast.makeText(context,tb,Toast.LENGTH_SHORT);
     }
 }
