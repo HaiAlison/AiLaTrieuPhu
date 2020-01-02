@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnItemLinhVuc"
+        android:id="@+id/btnPhuongAn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#b3ffff"

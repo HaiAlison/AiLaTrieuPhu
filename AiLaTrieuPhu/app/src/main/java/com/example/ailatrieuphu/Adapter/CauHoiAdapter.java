@@ -1,42 +1,65 @@
 package com.example.ailatrieuphu.Adapter;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ailatrieuphu.Class.CauHoi;
-import com.example.ailatrieuphu.Class.NguoiChoi;
-import com.example.ailatrieuphu.Fragment.HienThiCauHoiFragment;
+import com.example.ailatrieuphu.R;
+
 
 import java.util.List;
 
-import static com.example.ailatrieuphu.Other.GlobalVariables.KEY_CH_POSITION;
 
-public class CauHoiAdapter extends FragmentStatePagerAdapter {
+public class CauHoiAdapter extends RecyclerView.Adapter<CauHoiAdapter.CauHoiHolder> {
     private List<CauHoi> cauHoiList;
     private Context context;
 
-    public CauHoiAdapter(FragmentManager fm, List<CauHoi> cauHoiList, Context context, NguoiChoi nguoiChoi) {
-        super(fm);
-        this.cauHoiList = cauHoiList;
+    public CauHoiAdapter(Context context,List<CauHoi> cauHoiList) {
         this.context = context;
+        this.cauHoiList = cauHoiList;
+    }
+
+    @NonNull
+    @Override
+    public CauHoiAdapter.CauHoiHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v=LayoutInflater.from(context).inflate(R.layout.custom_button_linhvuc,parent,false);
+        return new CauHoiHolder(v);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        HienThiCauHoiFragment hienThiCauHoiFragment = new HienThiCauHoiFragment(cauHoiList,context,this);
-        Bundle saveStatus = new Bundle();
-        saveStatus.putInt(KEY_CH_POSITION,position);
-        hienThiCauHoiFragment.setArguments(saveStatus);
-        return hienThiCauHoiFragment;
+    public void onBindViewHolder(@NonNull CauHoiAdapter.CauHoiHolder holder, int position) {
+        CauHoi cauHoi=cauHoiList.get(position);
+        holder.viewCauHoi.setText(cauHoi.getNoiDung());
+        holder.btnPhuongAnA.setText(cauHoi.getDaA());
+        holder.btnPhuongAnB.setText(cauHoi.getDaB());
+        holder.btnPhuongAnC.setText(cauHoi.getDaC());
+        holder.btnPhuongAnD.setText(cauHoi.getDaC());
     }
 
-    public int getItemPosition(Object object){return POSITION_NONE;}
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return cauHoiList.size();
+    }
+
+    public class CauHoiHolder extends RecyclerView.ViewHolder {
+        private Button btnPhuongAnA,btnPhuongAnB,btnPhuongAnC,btnPhuongAnD;
+        private TextView viewCauHoi;
+        private RecyclerView recyclerView;
+        public CauHoiHolder(View v) {
+            super(v);
+            viewCauHoi=v.findViewById(R.id.vQuestion);
+//            recyclerView=v.findViewById(R.id.rcvQuest);
+            btnPhuongAnA=v.findViewById(R.id.btn_DapAn_A);
+            btnPhuongAnB=v.findViewById(R.id.btn_DapAn_B);
+            btnPhuongAnC=v.findViewById(R.id.btn_DapAn_C);
+            btnPhuongAnD=v.findViewById(R.id.btn_DapAn_D);
+        }
     }
 }

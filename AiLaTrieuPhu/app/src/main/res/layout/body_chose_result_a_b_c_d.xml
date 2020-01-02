@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.09" />
+    app:layout_constraintGuide_percent="0.09" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -123,7 +123,7 @@
         app:layout_constraintGuide_percent="0.15" />
 
     <TextView
-        android:id="@+id/text_question"
+        android:id="@+id/vQuestion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Ai là người tạo ra thuyết vũ trụ"
@@ -165,7 +165,7 @@
         android:layout_width="50dp"
         android:layout_height="51dp"
         android:src="@mipmap/ic_clock1_foreground"
-        app:layout_constraintBottom_toTopOf="@+id/text_question"
+        app:layout_constraintBottom_toTopOf="@+id/vQuestion"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />

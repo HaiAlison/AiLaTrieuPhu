@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -31,12 +33,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.Adapter.CauHoiAdapter;
+import com.example.ailatrieuphu.Adapter.LinhVucAdapter;
 import com.example.ailatrieuphu.Class.CauHoi;
 import com.example.ailatrieuphu.Class.LinhVuc;
 import com.example.ailatrieuphu.Class.NguoiChoi;
+import com.example.ailatrieuphu.Loader.CauHoiLoader;
 import com.example.ailatrieuphu.NetworkUtils;
-import com.example.ailatrieuphu.Question.AmNhac_PhimActivity;
-import com.example.ailatrieuphu.Question.TheThaoQuest;
 import com.example.ailatrieuphu.R;
 
 import org.json.JSONArray;
@@ -50,112 +52,79 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.example.ailatrieuphu.Controller.CauHoiController.COLUMN_LINH_VUC_ID;
-import static com.example.ailatrieuphu.Controller.LuotChoiController.COLUMN_LUOT_CHOI_DIEM;
-import static com.example.ailatrieuphu.Controller.LuotChoiController.COLUMN_LUOT_CHOI_NGAY_GIO;
-import static com.example.ailatrieuphu.Controller.LuotChoiController.COLUMN_LUOT_CHOI_SO_CAU;
-import static com.example.ailatrieuphu.Controller.LuotChoiController.COLUMN_NGUOI_CHOI_ID;
 import static com.example.ailatrieuphu.NetworkUtils.BASE_URL;
 import static com.example.ailatrieuphu.NetworkUtils.URI_CAU_HOI;
-import static com.example.ailatrieuphu.Other.GlobalVariables.GIA_LUOT_CHOI;
-import static com.example.ailatrieuphu.Other.GlobalVariables.KEY_LIMIT;
-import static com.example.ailatrieuphu.Other.GlobalVariables.KEY_PAGE;
-import static com.example.ailatrieuphu.Other.GlobalVariables.LIMIT_KHOI_TAO;
-import static com.example.ailatrieuphu.Other.GlobalVariables.PAGE_KHOI_TAO;
-import static com.example.ailatrieuphu.Other.GlobalVariables.PAGE_SIZE;
 
-public class HienThiCauHoiActivity extends AppCompatActivity{
-    public ViewPager vpgShowCauHoi;
-    public TextView tvTen, tvTinDung,tvDiem;
-    private CauHoiAdapter cauHoiAdapter;
-    private List<CauHoi> cauHois  = new ArrayList<>();;
-    public ImageView[] ivMang = new ImageView[5];
-    private NguoiChoi nguoiChoi;
-    private LinhVuc linhVuc;
+public class HienThiCauHoiActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     private Intent intent;
-    public int diemSoMang = 0;
-    public int tongDiem = 0;
-    public boolean[] ischeckedSP = {false, false,false, false};
-    public boolean checkCountTimerLoading =false;
-    private boolean checkLastPage = false;
-    private int currentPage = 1;
-    public ArrayList<CountDownTimer> countDownTimer = new ArrayList<>();
-    private static final int NUM_PAGES = 5;
-    private ViewPager mPager;
-    private PagerAdapter pagerAdapter;
-
+    TextView tvCauHoi;
+    Button paA_btn,paB_btn,paC_btn,paD_btn;
+    private static TextView tv_count_down;
+    public int counter = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hien_thi_cau_hoi);
-        Bundle inBundle=getIntent().getExtras();
-        String id=inBundle.get("linh_vuc_id").toString();
-        mPager = (ViewPager) findViewById(R.id.pager);
-        pagerAdapter = new HienThiCauHoiActivity.ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(pagerAdapter);
-        mPager.setPageTransformer(true, new HienThiCauHoiActivity.DepthPageTransformer());
-    }
-    public void onBackPressed() {
-    if (mPager.getCurrentItem() == 0) {
-        // If the user is currently looking at the first step, allow the system to handle the
-        // Back button. This calls finish() on this activity and pops the back stack.
-        super.onBackPressed();
-    } else {
-        // Otherwise, select the previous step.
-        mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-    }
-}
-
-    public static class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return new TheThaoQuest();
-        }
-    }
-    public class DepthPageTransformer implements ViewPager.PageTransformer {
-        private static final float MIN_SCALE = 0.75f;
-
-        public void transformPage(View view, float position) {
-            int pageWidth = view.getWidth();
-
-            if (position < -1) { // [-Infinity,-1)
-                // This page is way off-screen to the left.
-                view.setAlpha(0f);
-
-            } else if (position <= 0) { // [-1,0]
-                // Use the default slide transition when moving to the left page
-                view.setAlpha(1f);
-                view.setTranslationX(0f);
-                view.setScaleX(1f);
-                view.setScaleY(1f);
-
-            } else if (position <= 1) { // (0,1]
-                // Fade the page out.
-                view.setAlpha(1 - position);
-
-                // Counteract the default slide transition
-                view.setTranslationX(pageWidth * -position);
-
-                // Scale the page down (between MIN_SCALE and 1)
-                float scaleFactor = MIN_SCALE
-                        + (1 - MIN_SCALE) * (1 - Math.abs(position));
-                view.setScaleX(scaleFactor);
-                view.setScaleY(scaleFactor);
-
-            } else { // (1,+Infinity]
-                // This page is way off-screen to the right.
-                view.setAlpha(0f);
+        intent = getIntent();
+        tvCauHoi = findViewById(R.id.vQuestion);
+        paA_btn = findViewById(R.id.btn_DapAn_A);
+        paB_btn = findViewById(R.id.btn_DapAn_B);
+        paC_btn = findViewById(R.id.btn_DapAn_C);
+        paD_btn = findViewById(R.id.btn_DapAn_D);
+        tv_count_down = findViewById(R.id.textCountTime);
+        new CountDownTimer(10000,1000){
+            @Override
+            public void onTick(long millisUntilFinished){
+                tv_count_down.setText(String.valueOf(counter));
+                counter--;
             }
+            @Override
+            public void onFinish(){
+                tv_count_down.setText("Game over");
+            }
+        }.start();
+        if(getSupportLoaderManager().getLoader(0)!=null){
+            getSupportLoaderManager().initLoader(0,null,this);
+        }
+        getSupportLoaderManager().restartLoader(0,null,this);
+    }
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        int id_linh_vuc = intent.getIntExtra("linh_vuc_id",0);
+        return new CauHoiLoader(this,id_linh_vuc);
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+        JSONObject jsonObject =null;
+        try {
+            jsonObject = new JSONObject(data);
+            JSONArray cauHoi_jsonArray = jsonObject.getJSONArray("data");
+            for (int i = 0; i < cauHoi_jsonArray.length(); i++) {
+                JSONObject objectItemCauHoi=cauHoi_jsonArray.getJSONObject(i);
+                String noiDungCauHoi = objectItemCauHoi.getString("noi_dung");
+                String phuongAnA = objectItemCauHoi.getString("phuong_an_a");
+                String phuongAnB = objectItemCauHoi.getString("phuong_an_b");
+                String phuongAnC = objectItemCauHoi.getString("phuong_an_c");
+                String phuongAnD = objectItemCauHoi.getString("phuong_an_d");
+                tvCauHoi.setText(noiDungCauHoi);
+                paA_btn.setText(phuongAnA);
+                paB_btn.setText(phuongAnB);
+                paC_btn.setText(phuongAnC);
+                paD_btn.setText(phuongAnD);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+
+    }
+
 
 }
