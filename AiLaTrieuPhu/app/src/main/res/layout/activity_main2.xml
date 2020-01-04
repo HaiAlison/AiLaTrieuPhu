@@ -83,7 +83,8 @@
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:background="#3F51B5"
-        android:onClick="dangNhapGiaoDien"
+        android:onClick="login"
+
         android:text="Đăng nhập"
         android:textColor="#F7F4F4"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"

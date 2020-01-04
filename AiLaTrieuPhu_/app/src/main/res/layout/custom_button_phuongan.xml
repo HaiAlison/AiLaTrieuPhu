@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/vQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:text="Ai là người tạo ra thuyết vũ trụ"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_DapAn_A"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BEBBBD"
+        android:gravity="clip_horizontal"
+        android:text="Phương Án" />
+
+    <Button
+        android:id="@+id/btn_DapAn_B"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BEBBBD"
+        android:gravity="clip_horizontal"
+        android:text="Phương Án" />
+
+    <Button
+        android:id="@+id/btn_DapAn_C"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BEBBBD"
+        android:gravity="clip_horizontal"
+        android:text="Phương Án" />
+
+    <Button
+        android:id="@+id/btn_DapAn_D"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BEBBBD"
+        android:gravity="clip_horizontal"
+        android:text="Phương Án" />
+</LinearLayout>

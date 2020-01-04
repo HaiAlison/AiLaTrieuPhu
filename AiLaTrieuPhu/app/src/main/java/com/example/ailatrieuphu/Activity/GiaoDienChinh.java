@@ -3,6 +3,7 @@ package com.example.ailatrieuphu.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -12,6 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.ailatrieuphu.R;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
@@ -21,8 +25,12 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 
 public class GiaoDienChinh extends AppCompatActivity {
+
+
 //    private ShareDialog shareDialog;
     //private Button logout;
+private String sharedPrefFile = "com.example.ailatrieuphu";
+    private SharedPreferences mPreferences;
         // giao diện hiển thị sau khi đăng nhập
     public static final String KEY_PAGE = "page";
     public static final String KEY_LIMIT = "limit";
@@ -34,12 +42,13 @@ public class GiaoDienChinh extends AppCompatActivity {
         FacebookSdk.sdkInitialize(this);
         setContentView(R.layout.activity_giao_dien_chinh);
         //gán dữ liệu đã nhận được từ FB từ Main2Activity
-        Bundle inBundle=getIntent().getExtras();
-        String name=inBundle.get("name").toString();
-        String surename=inBundle.get("surename").toString();
-        String imageUrl=inBundle.get("imageUrl").toString();
-        TextView nameView=(TextView)findViewById(R.id.text_UserName);
-        nameView.setText(surename+" "+name+"");
+//        Bundle inBundle=getIntent().getExtras();
+//        String name=inBundle.get("name").toString();
+//        String surename=inBundle.get("surename").toString();
+//        String imageUrl=inBundle.get("imageUrl").toString();
+//        TextView nameView=(TextView)findViewById(R.id.text_UserName);
+//        nameView.setText(surename+" "+name+"");
+
         Button logout=(Button)findViewById(R.id.btn_Exit);
         //thiết lập sự kiện thoát khỏi Account FB và thoát khỏi trang hiện tại về trang đăng nhập
         logout.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +61,7 @@ public class GiaoDienChinh extends AppCompatActivity {
             }
         });
         //Tải lại giao diện để đổi thành ảnh đại diện trên FB
-        new GiaoDienChinh.DownloadImage((ImageView)findViewById(R.id.iv_avatar)).execute(imageUrl);
+       // new GiaoDienChinh.DownloadImage((ImageView)findViewById(R.id.iv_avatar)).execute(imageUrl);
 
         Button rank=(Button)findViewById(R.id.btnRank);
         rank.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +72,9 @@ public class GiaoDienChinh extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
     }
     public void ChuyenTrang(View view){
         Intent intent=new Intent(this,MainActivity.class);
@@ -102,7 +114,13 @@ public class GiaoDienChinh extends AppCompatActivity {
             bmImage.setImageBitmap(result);
         }
     }
-    public void ExitAccount(View view) {
 
+    public void ExitAccount(View view) {
+        // Xóa token trong SharedPreferences
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.clear();
+        editor.apply();
+        Intent intent = new Intent(this, Main2Activity.class);
+        startActivity(intent);
     }
 }

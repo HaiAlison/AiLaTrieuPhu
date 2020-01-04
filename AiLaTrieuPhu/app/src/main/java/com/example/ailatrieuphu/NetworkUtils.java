@@ -17,17 +17,60 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    public static final String BASE_URL =  "http://10.0.2.2:8000/api/"; // AVD(Genymotion : 10.0.3.2)
+    public static final String BASE_URL =  "http://limitless-ocean-16835.herokuapp.com/api/"; // AVD(Genymotion : 10.0.3.2)
+
     public static String GET = "GET";
     public static String POST = "POST";
     public static final String URI_CAU_HOI = "cau-hoi";
     public static final String URI_LINH_VUC = "linh-vuc";
     public static final String BASE_IMAGE = "http://10.0.2.2:8000/public/upload/images/";
 
+
+
+    public static String doRequest(String uri, String method, HashMap<String, String> params, String token) {
+        HttpURLConnection urlConnection = null;
+        String jsonString = null;
+        Uri.Builder builder = Uri.parse(BASE_URL + uri).buildUpon();
+
+        if(params != null) {
+            for (Map.Entry<String, String> pa : params.entrySet()) {
+                builder.appendQueryParameter(pa.getKey(), pa.getValue());
+            }
+        }
+        Uri builtURI = builder.build();
+
+        try {
+
+            URL requestURL = new URL(builtURI.toString());
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod(method);
+
+            if (token != null) {
+                // Dua token vao trong Header cua Request voi key Authorization
+                urlConnection.setRequestProperty("Authorization", token);
+            }
+
+            urlConnection.connect();
+
+            // Get the InputStream.
+            InputStream inputStream = urlConnection.getInputStream();
+            jsonString = convertToString(inputStream);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+        }
+
+        Log.d(LOG_TAG, jsonString);
+        return jsonString;
+    }
     //fuction check connect
     public static boolean checkConnect(Context context){
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

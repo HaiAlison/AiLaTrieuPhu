@@ -41,4 +41,8 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //them thư viện gson và volley
+    implementation 'com.android.volley:volley:1.1.0' //send request
+    implementation 'com.google.code.gson:gson:2.4'
 }
